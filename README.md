@@ -25,3 +25,5 @@ To Change an existing Pokemon You send a request to http://127.0.0.1:5000/pokemo
 To Delete a Pokemon You send a request to http://127.0.0.1:5000/pokemon/1 (or whatever id) and it removes that one from the list.
 
 The codes it gives back When something works, it tells you 200. When you send bad info, like forgetting a field or something, it tells you 400. When you ask for a Pokemon id that doesn't exist, it tells you 404.
+
+Note: The charizard and update.json are there because I can't use POST or PUT in curl to add or update it
