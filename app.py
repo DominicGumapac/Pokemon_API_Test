@@ -1,16 +1,3 @@
-"""
-Pokemon REST API
------------------
-A simple Flask + SQLite REST API supporting full CRUD (GET, POST, PUT, DELETE)
-for a hand-crafted list of Pokemon.
-
-Run with:
-    python app.py
-
-The database file (pokemon.db) is created automatically on first run and
-seeded with 15 hand-crafted Pokemon.
-"""
-
 from flask import Flask, jsonify, request, g
 import sqlite3
 import os
@@ -19,11 +6,11 @@ app = Flask(__name__)
 
 DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pokemon.db")
 
-# Fields required to create/fully describe a Pokemon
+
 REQUIRED_FIELDS = ["name", "type", "hp", "attack", "defense", "speed"]
 NUMERIC_FIELDS = ["hp", "attack", "defense", "speed"]
 
-# 15 hand-crafted Pokemon (NOT pulled from any external API)
+
 SEED_DATA = [
     ("Bulbasaur",  "Grass/Poison", 45, 49, 49, 45),
     ("Charmander", "Fire",         39, 52, 43, 65),
@@ -44,7 +31,6 @@ SEED_DATA = [
 
 
 def get_db():
-    """Get a per-request database connection."""
     if "db" not in g:
         g.db = sqlite3.connect(DB_PATH)
         g.db.row_factory = sqlite3.Row
@@ -59,7 +45,6 @@ def close_db(exception=None):
 
 
 def init_db():
-    """Create the pokemon table and seed it if empty."""
     conn = sqlite3.connect(DB_PATH)
     conn.execute(
         """
@@ -97,11 +82,6 @@ def row_to_dict(row):
 
 
 def validate_payload(data, partial=False):
-    """
-    Validate incoming JSON payload.
-    Returns an error message string if invalid, or None if valid.
-    If partial=True (used for PUT), only validates fields that are present.
-    """
     if data is None:
         return "Request body must be valid JSON."
 
@@ -122,10 +102,6 @@ def validate_payload(data, partial=False):
 
     return None
 
-
-# ---------------------------------------------------------------------------
-# Routes
-# ---------------------------------------------------------------------------
 
 @app.route("/", methods=["GET"])
 def index():
