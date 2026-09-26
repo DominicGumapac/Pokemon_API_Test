@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+pokemon.db
+venv/
+env/
+.env
+server.log
+.DS_Store
