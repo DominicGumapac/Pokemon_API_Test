@@ -12,7 +12,7 @@ Type this and press enter, it installs the one thing this needs to run: pip inst
 Type this and press enter, it starts the program: python app.py
 Then Leave that terminal open. Open the browser and go to: http://127.0.0.1:5000.
 
-The methods and stuff
+The methods and stuff (Backend)
 
 To Get the full list of Pokemon Just visit or send a request to: http://127.0.0.1:5000/pokemon It gives you back all 15 Pokemon.
 
@@ -25,5 +25,17 @@ To Change an existing Pokemon You send a request to http://127.0.0.1:5000/pokemo
 To Delete a Pokemon You send a request to http://127.0.0.1:5000/pokemon/1 (or whatever id) and it removes that one from the list.
 
 The codes it gives back When something works, it tells you 200. When you send bad info, like forgetting a field or something, it tells you 400. When you ask for a Pokemon id that doesn't exist, it tells you 404.
+
+Methods (Frontend)
+Follow the previous step except open the browser and go to: http://127.0.0.1:5000/static/index.html
+
+The full list is displayed when opening the website.
+
+To Add a Pokemon to the database, click the top right button saying add pokemon, insert the necessary values and click save changes.
+
+To Change an existing Pokemon in the database, search for the pokemon using the search bar or manually look for it, click the edit button and change the values as needed and then click save changes.
+
+To Delete a Pokemon in the database, click the delete button on your selected pokemon, A popup will appear asking confirmation if you want to delete it, press OK to delete it.
+
 
 Note: The charizard and update.json are there because I can't use POST or PUT in curl to add or update it
