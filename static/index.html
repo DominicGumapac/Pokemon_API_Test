@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pokémon Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Pokémon Manager</h1>
+  <button class="primary" id="addBtn">Add Pokémon</button>
+</header>
+<div class="tools">
+  <input id="search" type="search" placeholder="Search by name or type" aria-label="Search Pokémon">
+  <select id="sort" aria-label="Sort by">
+    <option value="id">Sort: ID</option>
+    <option value="name">Sort: Name</option>
+    <option value="hp">Sort: HP</option>
+    <option value="attack">Sort: Attack</option>
+    <option value="defense">Sort: Defense</option>
+    <option value="speed">Sort: Speed</option>
+  </select>
+</div>
+<main id="list"><p class="status">Loading…</p></main>
+
+<dialog id="dlg">
+  <form id="form" method="dialog">
+    <h2 id="dlgTitle">Add Pokémon</h2>
+    <label>Name <input name="name" required></label>
+    <label>Type (e.g. Fire or Grass/Poison) <input name="type" required></label>
+    <div class="row">
+      <label>HP <input name="hp" type="number" min="0" required></label>
+      <label>Attack <input name="attack" type="number" min="0" required></label>
+      <label>Defense <input name="defense" type="number" min="0" required></label>
+      <label>Speed <input name="speed" type="number" min="0" required></label>
+    </div>
+    <p id="formError" role="alert"></p>
+    <div class="btns">
+      <button type="button" id="cancel">Cancel</button>
+      <button type="submit" class="primary" id="saveBtn">Save changes</button>
+    </div>
+  </form>
+</dialog>
+<div id="toast" role="status"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
